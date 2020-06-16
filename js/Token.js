@@ -6,7 +6,7 @@ class Token {
     }
 
     drawHTMLToken(){
-        let div = document.createElement('DIV');
+        const div = document.createElement('DIV');
         document.getElementById('game-board-underlay').append(div);
     }
     get htmlToken(){}
