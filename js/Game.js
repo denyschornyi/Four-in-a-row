@@ -12,5 +12,6 @@ class Game {
         return players;
     }
 
+    // Gets game ready to plya
     startGame(){}
 }
