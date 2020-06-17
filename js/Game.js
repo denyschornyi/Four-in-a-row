@@ -5,6 +5,9 @@ class Game {
         this.ready = false;
     }    
 
+    get activePlayer(){
+        return players.find(player => player.active);
+    }
     
     createPlayers(){
         let players = [     new Player('Player 1', '#e15258', 1, true),
@@ -13,9 +16,5 @@ class Game {
     }
     // Gets game ready to play
     startGame(){}
-
-    get activePlayer(){
-        return players.filter(player => player.active === true);
-    }
 
 }
