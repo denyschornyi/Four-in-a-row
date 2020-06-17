@@ -15,6 +15,10 @@ class Game {
         return players;
     }
     // Gets game ready to play
-    startGame(){}
+    startGame(){
+        this.activePlayer.activeToken.drawHTMLToken();
+        this.board.drawHTMLBoard();
+        this.ready = true;
+    }
 
 }
