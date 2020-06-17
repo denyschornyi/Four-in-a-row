@@ -7,4 +7,6 @@ beginGame.addEventListener('click', () => {
     document.getElementById('play-area').style.opacity = '1';
 });
 
-document.addEventListener('keydown', game.handleKeydown);
+document.addEventListener('keydown', () => {
+    game.handleKeydown(event);
+});

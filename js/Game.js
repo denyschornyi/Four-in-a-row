@@ -23,11 +23,13 @@ class Game {
 
     handleKeydown(event){
         if(this.ready){
-            if(event.key = 'ArrowLeft'){
+            if(event.key === 'ArrowLeft'){
+                
             }
-            if(event.key = 'ArrowRigh'){
+            if(event.key === 'ArrowRight'){
+
             }
-            if(event.key = 'ArrowDown'){
+            if(event.key === 'ArrowDown'){
             }
         } 
     }
