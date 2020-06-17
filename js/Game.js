@@ -21,4 +21,14 @@ class Game {
         this.ready = true;
     }
 
+    handleKeydown(event){
+        if(this.ready){
+            if(event.key = 'ArrowLeft'){
+            }
+            if(event.key = 'ArrowRigh'){
+            }
+            if(event.key = 'ArrowDown'){
+            }
+        } 
+    }
 }
