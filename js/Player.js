@@ -15,6 +15,10 @@ class Player {
         }
         return tokens;
     }
+
+    get unusedToken(){
+        return this.token.filter(token => !token.dropped);
+    }
 }
 
 // let Denys = new Player('Denys', '12321', 'blue');
