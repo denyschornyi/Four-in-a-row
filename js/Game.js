@@ -30,7 +30,6 @@ class Game {
                 this.activePlayer.activeToken.moveRight(this.board.columns);
             }
             if(event.key === 'ArrowDown'){
-                this.activePlayer.activeToken.drop(this.board);   
                 this.playToken();
             }
         } 
@@ -39,18 +38,18 @@ class Game {
     playToken(){
         let spaces = this.board.spaces;
         let activeToken = this.activePlayer.activeToken;
-        let taregtColumn = spaces[activeToken.columnLocation];
+        let targetColumn = spaces[activeToken.columnLocation];
         let targetSpace = null;
 
-        for(let space of taregtColumn){
-            if(space.token === null){
-                targetSpace = space;
-            }
+		for (let space of targetColumn) {
+			if (space.token === null) {
+				targetSpace = space;
+			}
         }
 
-        if(targetSpace !== null){
+        if (targetSpace !== null) {
             game.ready = false;
-            activeToken.drop(targetSpace);
-        }
+    		activeToken.drop(targetSpace);   
+        }              
     }
 }
