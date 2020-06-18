@@ -24,12 +24,13 @@ class Game {
     handleKeydown(event){
         if(this.ready){
             if(event.key === 'ArrowLeft'){
-                
+                this.activePlayer.activeToken.moveLeft();
             }
             if(event.key === 'ArrowRight'){
-
+                this.activePlayer.activeToken.moveRight(this.board.columns);
             }
             if(event.key === 'ArrowDown'){
+                
             }
         } 
     }
