@@ -40,18 +40,41 @@ class Game {
         let activeToken = this.activePlayer.activeToken;
         let targetColumn = spaces[activeToken.columnLocation];
         let targetSpace = null;
-
-		for (let space of targetColumn) {
-			if (space.token === null) {
-				targetSpace = space;
-			}
+    
+        for (let space of targetColumn) {
+            if (space.token === null) {
+                targetSpace = space;
+            }
         }
-
+    
         if (targetSpace !== null) {
+            const game = this;
             game.ready = false;
-    		activeToken.drop(targetSpace);   
+    
+            activeToken.drop(targetSpace, function(){
+                game.updateGameState(activeToken, targetSpace);           
+            });  
         }              
     }
+
+    updateGameState(token, target) {
+		target.mark(token);
+
+        if (!this.checkForWin(target)) {
+            
+			this.switchPlayers();
+            
+            if (this.activePlayer.checkTokens()) {
+                this.activePlayer.activeToken.drawHTMLToken();
+                this.ready = true;
+            } else {
+                this.gameOver('No more tokens');
+            }
+        } else {
+            this.gameOver(`${target.owner.name} wins!`)
+        }			
+    }
+
 
     checkForWin(target){
         const owner = target.token.owner;
@@ -113,7 +136,7 @@ class Game {
 			player.active = player.active === true ? false : true;
 		}
     }
-    
+
     gameOver(message) {
 		document.getElementById('game-over').style.display = 'block';
         document.getElementById('game-over').textContent = message;

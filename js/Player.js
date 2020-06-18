@@ -23,6 +23,10 @@ class Player {
     get activeToken(){
         return this.unusedToken[0];
     }
+
+    checkTokens(){
+        return this.unusedTokens.length == 0 ? false : true;
+    }
 }
 
 // let Denys = new Player('Denys', '12321', 'blue');
