@@ -107,4 +107,15 @@ class Game {
     
         return win;
     }
+
+    switchPlayers() {
+		for (let player of this.players) {
+			player.active = player.active === true ? false : true;
+		}
+    }
+    
+    gameOver(message) {
+		document.getElementById('game-over').style.display = 'block';
+        document.getElementById('game-over').textContent = message;
+    }
 }
